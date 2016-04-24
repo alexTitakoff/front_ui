@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>simpleSlider</title>
+
+  <style>
+
+
+    @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);  
+
+    html {
+      border-top: 5px solid #fff;
+      background: #808080;
+      color: #2a2a2a;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans';
+    }
+
+    h1 {
+      color: #fff;
+      text-align: center;
+      font-weight: 300;
+    }
+
+    #slider {
+      position: relative;
+      overflow: hidden;
+      margin: 20px auto 0 auto;
+      border-radius: 4px;
+    }
+
+    .slider_wrap {
+      margin: 20px auto 0 auto;
+      border-radius: 4px;
+      position: relative;
+      width: 405px;
+      height: 232px;
+
+    }
+
+    #slider ul {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      height: 200px;
+      list-style: none;
+    }
+    #slider ul li {
+      position: relative;
+      display: block;
+      float: left;
+      margin: 0;
+      padding: 0;
+      width: 405px;
+      height: 232px;
+      background: #ccc;
+      text-align: center;
+
+    }
+
+    .control_prev, .control_next {
+      position: absolute;
+      top: 40%;
+      z-index: 999;
+      display: block;
+
+      width: auto;
+      height: auto;
+      background: #2a2a2a;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      opacity: 0.8;
+      cursor: pointer;
+      height: 50px;
+      width: 50px;
+      line-height: 50px;
+    }
+
+    .control_prev:hover, a.control_next:hover {
+      opacity: 1;
+      -webkit-transition: all 0.2s ease;
+    }
+
+    .control_prev {
+      border-radius: 50%;
+      left: -5%;
+    }
+
+    .control_next {
+      right: 0;
+      border-radius: 50%;
+      right: -5%;
+    }
+
+    .slider_option {
+      position: relative;
+      margin: 10px auto;
+      width: 160px;
+      font-size: 18px;
+    }
+
+
+
+    /*элекса стили для слайдера*/
+    .widget_blocks_wrap {
+      border-radius: 4px;
+      width: 405px;
+      height: 232px;
+      top: 31%;
+      left: 3%;
+      position: absolute;
+      text-align: center;
+      background: rgba(255,255,255,0.99);
+      box-shadow: 0px 0px 7px 0px rgba(90,90,90,0.50);
+
+    }
+    .widget_block {     
+      border-radius: 4px;
+      width: 405px;
+      height: 232px;
+      position: absolute;
+      text-align: center;
+    }
+
+    .widget_block h3 {
+      font-family: 'AMG Anahit';
+      font-size: 22px;
+      color: #950102;
+      line-height:20px;
+      text-align:left;
+      font-weight: 400;
+      text-align: center;
+      margin-top: 22px; 
+
+    }
+
+
+
+    .widget_descr {
+      font-family: "Roboto Light";
+      font-size: 14px;
+      color: #6b6b6b;
+      letter-spacing: 0.13px;
+      line-height: 20px;
+      text-align: center;
+      width: 71%;
+      display: block;
+      margin: 0 auto;
+      margin-top: 6px; 
+    }
+
+    .widget_price {
+      height: 30px;
+      margin-top: 40px;
+      padding-left: 29%;
+    }
+
+    .sell{
+      display: inline-block;
+      font-family:"Roboto Light";
+      font-size:12.44px;
+      color:#cccccc;
+      text-align:center;
+      vertical-align: top;
+      position: relative;
+      top: 8px;
+      margin-right: 15px;
+      text-decoration: line-through;
+
+    }
+
+    .sell span {
+      font-family:"Rub";
+
+    }
+    .price{
+      display: inline-block;
+      font-family:"Roboto Bold";
+      font-size:28px;
+      color:#950102;
+      text-align:center;
+      vertical-align: top;
+
+    }
+
+    .price span {
+      font-family:"Rub";
+    }
+
+
+    #widget_bottom_bar {
+      height: 54px;
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+    }
+    #widget_bottom_bar_icon {
+      display: inline-block;
+      width: 14%;
+      background: url(../img/libra.png);
+      background-size: contain;
+      height: 100%;
+      background-repeat: no-repeat;
+    }
+
+    #widget_more_btn{
+      display: inline-block;
+      width: 34%;
+      height: 100%;
+      vertical-align: top;  
+    }
+
+    #widget_more_btn p {
+      font-family: 'AMG Anahit';
+      font-size: 14px;
+      color:#c8c5c7;
+      line-height: 16px;
+      text-align: center;
+      line-height: 53px;
+      vertical-align: top;
+      text-decoration: underline;
+      padding-bottom: 20px;
+    }
+
+    #widget_bye_btn {
+      display: inline-block;
+      width: 49.5%;
+      height: 100%;
+      background: #950102;
+      border-radius: 4px;
+      height: 54px;
+      vertical-align: top;
+      font-family: 'AMG Anahit';
+      font-size: 14.53px;
+      color: #ffffff;
+      line-height: 59px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+
+    #widget_UI_btn_left {
+      width: 52px;
+      height: 50px;
+      background: url(../img/uileft.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 41%;
+      left: -6%;
+      cursor: pointer;
+      transition: 0.2s linear all;  
+      background: #D5A424;
+      border-radius: 50%;
+
+    }
+
+    #widget_UI_btn_left:hover {
+      transition: 0.2s linear all;  
+      -webkit-transform: scale(1.02);
+      transform: scale(1.05);
+
+    }
+
+    #widget_UI_btn_right {
+      width: 52px;
+      height: 50px;
+      background: url(../img/uiright.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 41%;
+      right: -6%;
+      cursor: pointer;
+      transition: 0.2s linear all;  
+      background: #D5A424;
+      border-radius: 50%;
+    }
+
+    #widget_UI_btn_right:hover {
+      transition: 0.2s linear all;  
+      -webkit-transform: scale(1.02);
+      transform: scale(1.05);
+    }
+
+    #widget_UI_paginator {
+      height: 8px;
+      width: 44px;
+      position: absolute;
+      top: 106%;
+
+      background: url(../img/paginator.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      left: 44%;
+
+    }
+
+
+    /*элекса стили для слайдера*/
+
+
+
+
+  </style>
+</head>
+
+
+
+
+
+
+
+<body>
+
+
+  <h1>my simple slider</h1>
+
+  <div class="slider_wrap">
+
+    <div id="slider">
+
+      <ul>
+        <li>SLIDE 1</li>
+        <li>
+         <div class="widget_block">
+          <h3>НАБОР МЕБЕЛИ «ЭЛИТ ПЛЮС»</h3>
+          <div class="widget_descr">
+            Уютный минимализм для любимых,
+            отличный подарок на 8 марта.
+            Слайд2  
+          </div>
+          <div class="widget_price">
+            <div class="sell">120 000 <span> г </span></div>
+            <div class="price">90 000 <span> г </span></div>
+          </div>  
+
+
+          <div id="widget_bottom_bar">
+            <div id="widget_bottom_bar_icon"></div>
+            <a href=""><div id="widget_more_btn"><p>Подробнее</p></div></a>
+            <div id="widget_bye_btn">Заказать</div>
+          </div>
+
+        </div>
+      </li>
+      <li>SLIDE 3</li>
+      <li style="background: #aaa;">SLIDE 4</li>
+    </ul>  
+  </div>
+
+  <div class="control_next control">></div>
+  <div class="control_prev control"><</div>
+
+  <div class="slider_option">
+    <input type="checkbox" id="checkbox" >
+    <label for="checkbox">Autoplay Slider</label>
+  </div> 
+
+
+
+
+
+</div>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>
+
+  jQuery(document).ready(function ($) {
+
+    $('#checkbox').change(function(){
+      setInterval(function () {
+        moveRight();
+      }, 3000);
+    });
+
+
+       //для автоматического запуска без использования чек бокса
+       function autoPlay() {
+        setInterval(function () {
+          moveRight();
+        }, 8000);
+      };
+
+      //autoPlay();
+
+      //для автоматического запуска без использования чек бокса
+
+
+
+
+      var slideCount = $('#slider ul li').length; //расчитываем количество слайдов
+      var slideWidth = $('#slider ul li').width(); // расчет длины слайда
+      var slideHeight = $('#slider ul li').height(); //расчет высоты слайда
+      var sliderUlWidth = slideCount * slideWidth;  // длина всей полоски слайдеров
+
+      $('#slider').css({ width: slideWidth, height: slideHeight }); //задали оберточному слайду размеры
+
+      $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+      $('#slider ul').css({ height: slideHeight});
+
+      $('#slider ul li:last-child').prependTo('#slider ul'); // последний элемент Ли идет вначало всего ряда
+
+      function moveLeft() {
+        $('#slider ul').animate({
+          left: + slideWidth    // активируется анимация и смещение влево на ширину слайда
+        }, 200, function () {
+          $('#slider ul li:last-child').prependTo('#slider ul'); // конечный слайд вначало
+          $('#slider ul').css('left', '');
+        });
+      };
+
+      function moveRight() {
+        $('#slider ul').animate({
+          left: - slideWidth  // смещение вправо
+        }, 200, function () {
+          $('#slider ul li:first-child').appendTo('#slider ul'); // конечный слайд вконец
+          $('#slider ul').css('left', '');
+        });
+      };
+
+
+
+      $('.control_prev').click(function () {
+        moveLeft();
+      });
+
+      $('.control_next').click(function () {
+        moveRight();
+      });
+
+    });    
+
+  </script>
+</body>
+</html>
