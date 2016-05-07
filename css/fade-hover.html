@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fade-hover</title>
+
+	<style>
+
+		.image {
+			background-image: url('http://24.media.tumblr.com/20a9c501846f50c1271210639987000f/tumblr_n4vje69pJm1st5lhmo1_1280.jpg');
+			width: 400px;
+			height: 250px;
+			background-size: cover;
+			margin: 48px auto;
+			background-position: 50%;
+			position: relative;
+		}
+		.content {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			padding: 0 14%;
+			box-sizing: border-box;
+			display: table;
+			z-inde: 9;
+			background: rgba(34,34,34,0.7);
+		}
+		.content div {
+			display: table-cell;
+			vertical-align: middle;
+			color: white;
+			z-index: 9;
+		}
+		span {
+			left: -6px;
+			transition: all 0.5s ease;
+			display: block;
+		}
+		span,
+		h1 {
+			position: relative;
+			opacity: 0;
+		}
+		h1 {
+			margin: 0;
+			left: -5px;
+			transition: all 0.5s ease;
+		}
+		.image:hover span {
+			opacity: 1;
+			-webkit-transform: translateX(6px);
+		}
+		.image:hover h1 {
+			opacity: 1;
+			-webkit-transform: translateX(5px);
+		}
+
+
+
+
+	</style>
+</head>
+<body>
+
+
+
+	<div class='image'>
+		<div class='content'>
+			<div>
+				<span>Category</span>
+				<h1>Proof of Concept</h1>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

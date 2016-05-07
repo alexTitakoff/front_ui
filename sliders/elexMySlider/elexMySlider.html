@@ -389,10 +389,10 @@
        function autoPlay() {
         setInterval(function () {
           moveRight();
-        }, 8000);
+        }, 3000);
       };
 
-      //autoPlay();
+      autoPlay();
 
       //для автоматического запуска без использования чек бокса
 
@@ -414,7 +414,7 @@
       function moveLeft() {
         $('#slider ul').animate({
           left: + slideWidth    // активируется анимация и смещение влево на ширину слайда
-        }, 200, function () {
+        }, 400, function () {
           $('#slider ul li:last-child').prependTo('#slider ul'); // конечный слайд вначало
           $('#slider ul').css('left', '');
         });
@@ -423,7 +423,7 @@
       function moveRight() {
         $('#slider ul').animate({
           left: - slideWidth  // смещение вправо
-        }, 200, function () {
+        }, 400, function () {
           $('#slider ul li:first-child').appendTo('#slider ul'); // конечный слайд вконец
           $('#slider ul').css('left', '');
         });
